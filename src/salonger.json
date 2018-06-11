@@ -3,6 +3,7 @@ let salonger = [
       "name": "Sax o fön",
       "price": 320,
       "address": "Rådmansgatan 46",
+      "rating": ,
       "description": "Lorem ipsum..."
     },
     {

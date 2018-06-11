@@ -61,7 +61,7 @@ class MenuBar extends React.Component{
 class DropDownParent extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {range: ''};
+    this.state = {range: 'Alla prisklasser'};
     this.changeRange = this.changeRange.bind(this);
   }
 
@@ -72,7 +72,7 @@ class DropDownParent extends React.Component{
   }
 
   render() {
-    return <DropChild range={this.state.range} onChange={this.changeRange} />
+    return <DropChild range={this.state.range} onClick={this.changeRange} />
   }
 }
 

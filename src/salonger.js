@@ -1,5 +1,3 @@
-import React from 'React';
-
 export let salonger = [
     {
       name: 'Sax o fön',

@@ -3,12 +3,12 @@ import React from 'react';
 export default class DropChild extends React.Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
     
-    handleChange(e) {
+    handleClick(e) {
         const range = e.target.value;
-        this.props.onChange(range);
+        this.props.onClick(range);
     }
     
     render() {
@@ -16,9 +16,9 @@ export default class DropChild extends React.Component {
             <div className = 'dropdown'>
                 <button className = 'dropbtn'>Pris {this.props.range}</button>
                 <div className='dropdown-content'>
-                    <option onChange={this.handleChange} range = 'Alla prisklasser'>Alla prisklasser</option>
-                    <option onChange= {this.handleChange} range = '0-250'>0-250</option>
-                    <option onChange= {this.handleChange} range = '250-500'>250-500</option>
+                    <option onClick={this.handleClick} range = 'Alla prisklasser'>Alla prisklasser</option>
+                    <option onClick= {this.handleClick} range = '0-250'>0-250</option>
+                    <option onClick= {this.handleClick} range = '250-500'>250-500</option>
                 </div>
             </div>
         );
