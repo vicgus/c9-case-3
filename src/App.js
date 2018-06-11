@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './download.jpg';
 import './App.css';
 import blackstatus from './pics/black_status.png';
 import back from './pics/back.png';
 import settings from './pics/settings.png';
 import down from './pics/down.png';
+import DropChild from './dropdownchild.js';
 
 
 let defaultStyle = {
@@ -58,31 +58,25 @@ class MenuBar extends React.Component{
 }
 
 
-// Bygg this.toggleRange
-class DropDownMenu extends React.Component{
-  // constructor(props) {
-  //   super(props);
-  //   this.handleChange = this.handleChange.bind(this);
-  // }
+class DropDownParent extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {range: ''};
+    this.changeRange = this.changeRange.bind(this);
+  }
 
-  // handleChange(e) {
-  //   const range = e.target.value;
-  //   this.props.onChange(range);
-  // }
+  changeRange(newRange) {
+    this.setState({
+      range: newRange
+    });
+  }
 
   render() {
-    return(
-      <div className='dropdown'>
-        <button className='dropbtn'>Pris<img className = "right" src={down} /></button>
-        <div className='dropdown-content'>
-          <a href ="#" onClick= {this.toggleRange='cheap'}>0-250</a>
-          <a href ="#" onClick= {this.toggleRange='cheap'}>250-500</a>
-          <a href ="#" onClick= {this.toggleRange='notCheap'}>500-1000</a>
-        </div>
-      </div>
-    )
+    return <DropChild range={this.state.range} onChange={this.changeRange} />
   }
 }
+
+
 
 class SalongList extends React.Component{
   render() {
@@ -98,22 +92,13 @@ class SalongList extends React.Component{
   } 
 }
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {serverData: {}}
-  }
-
-  // componentDidMount() {
-  //   this.setState({serverData: salongData});
-  // }
-  
+class App extends React.Component {  
   render() {
     return (
       <div className="App">
-        <div className = "App-status"><img src= {blackstatus}/></div>
+        <div className = "App-status"><img src= {blackstatus} alt='Status bar'/></div>
         <MenuBar/>
-        <DropDownMenu/>
+        <DropDownParent/>
         <SalongList/>
       </div>
     );

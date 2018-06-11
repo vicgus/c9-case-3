@@ -101,7 +101,7 @@ li {
   border-bottom-color: black;
 }
 
-.dropdown-content a {
+.dropdown-content option {
   color: black;
   width: 375px;
   text-decoration: none;
@@ -109,7 +109,7 @@ li {
   height: 40px;
 }
 
-.dropdown-content a:hover {
+.dropdown-content option:hover {
   background-color: lightgray;
   font-family: 'MillerBanner Light';
 }
