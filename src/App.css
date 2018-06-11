@@ -1,38 +1,33 @@
-.App {
-  text-align: center;
-  color: #202020
+body {
+  background: lightgrey;
+  color: #202020; 
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App {
+  text-align: center;
+  color: #202020;
+  width: 375px;
+  height: 667px;
+  margin: auto;
+  background-color: white;
+}
+
+.App-status {
+  background-color: white;
+  height: 20px;
+  width: 375px;
+  border-bottom: #202020;
+  margin-bottom: 0px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: white;
+  height: 50px;
   width: 375px;
-  padding: 20px;
   color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-body {
-  background: #ffffff;
-  color: #202020;
-  
+  background-color: white;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 @font-face {
@@ -44,5 +39,89 @@ h1 {
   font-size: 5;
   font-family: 'MillerBanner Light';
   color: black;
+  background-color: white;
+  text-align: center;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  height: 105px;
+  font-family: 'MillerBanner Light';
+  text-align: center;
+}
+
+.right {
+  float: right;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+
+.left {
+  float: left;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.dropbtn {
+  background-color: white;
+  color: black;
+  width: 375px;
+  height: 50px;
+  font-family: 'MillerBanner Light';
+  font-size: 20px;
+  border-bottom-color: black;
+  cursor: pointer;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.droptext {
+  padding-left: 20px;
+}
+
+.dropdown {
+  position: center;
+  display: block;
+  font-family: 'MillerBanner Light';
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  color: gray;
+  min-width: 375px;
+  font-family: 'MillerBanner Light';
+  border-bottom-color: black;
+}
+
+.dropdown-content a {
+  color: black;
+  width: 375px;
+  text-decoration: none;
+  display: block;
+  height: 40px;
+}
+
+.dropdown-content a:hover {
+  background-color: lightgray;
+  font-family: 'MillerBanner Light';
+}
+
+.dropdown:hover .dropdown-content {
+  background-color: white;
+  display: block;
+  font-family: 'MillerBanner Light';
+}
+
+.dropdown:hover .dropbtn {
+  background-color: lightblue;
+  display: block;
+  font-family: 'MillerBanner Light';
+}

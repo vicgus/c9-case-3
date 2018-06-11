@@ -4,30 +4,83 @@ import './App.css';
 import blackstatus from './pics/black_status.png';
 import back from './pics/back.png';
 import settings from './pics/settings.png';
+import down from './pics/down.png';
 
-let screenWidth = '375px';
+
+let defaultStyle = {
+  width: '375px',
+  fontSize: '5'
+};
+
+
+let salonger = [
+  {
+    name: 'Sax o fön',
+    price: 320,
+    address: 'Rådmansgatan 46',
+    description: 'Lorem ipsum...'
+  },
+  {
+    name: 'Hårizont',
+    price: 520,
+    address: 'Götgatan 1',
+    description: 'Ipsum lorem...'
+  },
+  {
+    name: 'Hårhuset',
+    price: 220,
+    address: 'Tätorpsvägen 45',
+    description: 'Sumip emrol...'
+  },
+  {
+    name: 'Hårhuset',
+    price: 220,
+    address: 'Sergels Torg 4005',
+    description: 'Emrol sumip...'
+  },
+];
+
+console.log(salonger)
+
 
 class MenuBar extends React.Component{
   render() {
     return(
-      <div style={{fontSize:'5'}}>
-        <h1><img src= {back}/>Hår<img src= {settings}/></h1>
+      <div className="App-header">
+        <h1>
+          <img className= "left" src= {back}/>
+          Hår
+          <img className= "right" src= {settings}/>
+        </h1>
       </div>
     );
   }
 }
 
-class Select extends React.Component{
+
+// Bygg this.toggleRange
+class DropDownMenu extends React.Component{
+  // constructor(props) {
+  //   super(props);
+  //   this.handleChange = this.handleChange.bind(this);
+  // }
+
+  // handleChange(e) {
+  //   const range = e.target.value;
+  //   this.props.onChange(range);
+  // }
+
   render() {
     return(
-      <div>
-        <select id='text'>
-          <option value='Alla'>Alla</option>
-          <option value='250-500'>250-500</option>
-          <option value='500-1000'>500-1000</option>
-        </select>
+      <div className='dropdown'>
+        <button className='dropbtn'>Pris<img className = "right" src={down} /></button>
+        <div className='dropdown-content'>
+          <a href ="#" onClick= {this.toggleRange='cheap'}>0-250</a>
+          <a href ="#" onClick= {this.toggleRange='cheap'}>250-500</a>
+          <a href ="#" onClick= {this.toggleRange='notCheap'}>500-1000</a>
+        </div>
       </div>
-    );
+    )
   }
 }
 
@@ -36,9 +89,9 @@ class SalongList extends React.Component{
     return(
     <div>
       <ul>
-        <li><div><h3>Salong1</h3></div></li>
-        <li><div><h3>Salong1</h3></div></li>
-        <li><div><h3>Salong1</h3></div></li>
+        <li><a href="#">salong 1</a></li>
+        <li><a href="#">salong 2</a></li>
+        <li><a href="#">salong 3</a></li>
       </ul>
     </div>
     );
@@ -46,13 +99,21 @@ class SalongList extends React.Component{
 }
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {serverData: {}}
+  }
+
+  // componentDidMount() {
+  //   this.setState({serverData: salongData});
+  // }
+  
   render() {
-    let name = 'Victor'
     return (
       <div className="App">
-        <img src= {blackstatus}/>
+        <div className = "App-status"><img src= {blackstatus}/></div>
         <MenuBar/>
-        <Select/>
+        <DropDownMenu/>
         <SalongList/>
       </div>
     );
