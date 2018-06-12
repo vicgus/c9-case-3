@@ -50,10 +50,11 @@ console.log(fakeServerData.salong)
 
 class Salong extends React.Component {
   render() {
+    let salongInfo = this.props.salongInfo;
     return(
       <div className='listitem'>
-        <h1> {this.props.name} </h1>
-        <h1> {this.props.price} </h1>
+        <h1> {salongInfo.name} </h1>
+        <h1> {salongInfo.price} </h1>
       </div>
     )
   }
@@ -85,9 +86,12 @@ class DropDownParent extends React.Component{
             {this.state.serverData.salong ?
             <div>
               <DropChild range={this.state.range} onClick={this.changeRange} />
-              {this.state.serverData.salong.map(salongName =>
-                <Salong name={salongName.name} />              
+              {this.state.serverData.salong.map(salongInfo =>
+                <Salong salongInfo={salongInfo} />              
               )}
+              {/* {this.state.serverData.salong.map(salongPrice =>
+                <Salong price={salongPrice.price} />              
+              )} */}
             </div> : <h1>loading</h1>
         }
         </div>
