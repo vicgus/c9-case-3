@@ -13,12 +13,14 @@ export default class DropChild extends React.Component {
     
     render() {
         return(
-            <div className = 'dropdown'>
-                <button className = 'dropbtn'>Pris {this.props.range}</button>
-                <div className='dropdown-content'>
-                    <option onClick={this.handleClick} range = 'Alla prisklasser'>Alla prisklasser</option>
-                    <option onClick= {this.handleClick} range = '0-250'>0-250</option>
-                    <option onClick= {this.handleClick} range = '250-500'>250-500</option>
+            <div>
+                <div className = 'dropdown'>
+                    <button className = 'dropbtn'>Pris {this.props.range}</button>
+                    <div className='dropdown-content'>
+                        <option onClick={this.handleClick}>Alla priser</option>
+                        <option onClick= {this.handleClick}>0-250</option>
+                        <option onClick= {this.handleClick}>250-500</option>
+                    </div>
                 </div>
             </div>
         );

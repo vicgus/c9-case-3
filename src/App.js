@@ -5,6 +5,7 @@ import back from './pics/back.png';
 import settings from './pics/settings.png';
 import down from './pics/down.png';
 import DropChild from './dropdownchild.js';
+import Sibling from './sibling.js';
 
 
 let defaultStyle = {
@@ -57,26 +58,40 @@ class MenuBar extends React.Component{
   }
 }
 
+let fakeServerData = {
+  salong: {
+    name: 'Sax o Fön',
+    price: 320
+  }
+};
 
 class DropDownParent extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {range: 'Alla prisklasser'};
+    this.state = {range: ''};
     this.changeRange = this.changeRange.bind(this);
   }
 
+  //EXPORT NEWRANGE??? LÖSNING???
   changeRange(newRange) {
     this.setState({
       range: newRange
     });
+    // console.log(this.setState.range, newRange);
+  }
+
+  componentDidMount() {
+    this.setState({serverData: fakeServerData})
   }
 
   render() {
-    return <DropChild range={this.state.range} onClick={this.changeRange} />
-  }
+    return <div>  
+              <DropChild range={this.state.range} onClick={this.changeRange} />
+              <Sibling range = {this.state.range} onClick={this.changeRange} />
+
+            </div>
+  } 
 }
-
-
 
 class SalongList extends React.Component{
   render() {
@@ -92,14 +107,15 @@ class SalongList extends React.Component{
   } 
 }
 
-class App extends React.Component {  
+class App extends React.Component {
+
   render() {
     return (
       <div className="App">
         <div className = "App-status"><img src= {blackstatus} alt='Status bar'/></div>
         <MenuBar/>
         <DropDownParent/>
-        <SalongList/>
+        {/* <SalongList/> */}
       </div>
     );
   }

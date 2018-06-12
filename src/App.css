@@ -125,3 +125,11 @@ li {
   display: block;
   font-family: 'MillerBanner Light';
 }
+
+divlist {
+  width: 375px;
+  height: 106px;
+  background-color: white;
+  font-family: 'Millerbanner Light';
+
+}
