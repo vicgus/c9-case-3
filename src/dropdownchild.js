@@ -1,4 +1,6 @@
 import React from 'react';
+import ranges from './ranges.js';
+
 
 export default class DropChild extends React.Component {
     constructor(props) {
@@ -36,7 +38,7 @@ export default class DropChild extends React.Component {
                     <div className='dropdown-content'>
                         <option  onClick={this.handleClick}>{allRanges.text}</option>
                         <option  onClick= {this.handleClick}>{firstRange.text}</option>
-                        <option  onClick= {this.handleClick}>{secondRange.text} {secondRange.topPrice}</option>
+                        <option  onClick= {this.handleClick}>{secondRange.text}</option>
                     </div>
                 </div>
             </div>
