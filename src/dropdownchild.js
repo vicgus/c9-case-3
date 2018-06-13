@@ -10,7 +10,7 @@ export default class DropChild extends React.Component {
         const range = e.target.value;
         this.props.onClick(range);
     }
-
+    //Not used atm
     handleUserClick(e) {
         const listRange = e.target.value;
         this.props.onClick(listRange);
@@ -21,7 +21,6 @@ export default class DropChild extends React.Component {
         let firstRange = '0-250';
         let secondRange = '250-500';
         return(
-            
             <div>
                 <div className = 'dropdown'>
                     <button className = 'dropbtn'>Pris {this.props.range}</button>
