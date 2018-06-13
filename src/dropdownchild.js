@@ -17,7 +17,7 @@ export default class DropChild extends React.Component {
     }
     
     render() {
-        let allRanges = 'Alla priser';
+        let allRanges = '-';
         let firstRange = '0-250';
         let secondRange = '250-500';
         return(
