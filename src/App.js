@@ -65,15 +65,48 @@ class DropDownParent extends React.Component{
   render() {
     return (
           <div>
-            {this.state.serverData.salong ?
             <div>
               <DropChild range={this.state.range} onClick={this.changeRange} id={this.state.id}/>
+            </div>
+        </div>
+    );
+  } 
+}
+
+class FilterList extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      serverData: {},
+      range: ''
+    };
+    this.changeRange = this.changeRange.bind(this);
+  }
+
+  changeRange(newRange) {
+    this.setState({
+      range: newRange
+    });
+    console.log(newRange);
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({serverData: salongServerData});
+    }, 1000);
+  }
+
+  render() {
+    return (
+          <div>
+            {this.state.serverData.salong ?
+            <div>
               {this.state.serverData.salong.filter(salongInfo =>
                 salongInfo.price
               ).map(salongInfo =>
                 <Salong salongInfo={salongInfo} />              
               )}
-            </div> : <h1>loading</h1>
+            </div> : <h1>Laddar...</h1>
         }
         </div>
     );
@@ -90,6 +123,7 @@ class App extends React.Component {
         <div className = "App-status"><img src= {blackstatus} alt='Status bar'/></div>
         <MenuBar/>
         <DropDownParent/>
+        <FilterList />
       </div>
     );
   }
