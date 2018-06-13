@@ -10,6 +10,8 @@ body {
   height: 667px;
   margin: auto;
   background-color: white;
+  margin-bottom: 10px;
+  padding-bottom: 100px;
 }
 
 .App-status {
@@ -121,15 +123,32 @@ li {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: lightblue;
+  background-color: lightgray;
   display: block;
   font-family: 'MillerBanner Light';
 }
 
-divlist {
+.listitem {
   width: 375px;
   height: 106px;
   background-color: white;
   font-family: 'Millerbanner Light';
-
 }
+
+.salname {
+  font-family: 'Millerbanner Light';
+  font-size: 20px;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  padding-top: 25px;
+  margin-top: 25px;
+}
+
+.salprice {
+  font-family: 'Millerbanner Light';
+  font-size: 15px;
+  padding-top: none;
+  float: right;
+  padding-right: 30px;
+}
+

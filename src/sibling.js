@@ -24,3 +24,6 @@ export default class Sibling extends React.Component{
 }
 
 
+   //in dropdownmenu render            {/* <Sibling range = {this.state.range} onClick={this.changeRange} /> */}
+
+

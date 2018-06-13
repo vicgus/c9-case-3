@@ -5,7 +5,8 @@ import back from './pics/back.png';
 import settings from './pics/settings.png';
 import down from './pics/down.png';
 import DropChild from './dropdownchild.js';
-import Sibling from './sibling.js';
+import fullstar from './pics/fullstar.png';
+
 
 class MenuBar extends React.Component{
   render() {
@@ -21,40 +22,62 @@ class MenuBar extends React.Component{
   }
 }
 
-let fakeServerData = {
+let salongServerData = {
   salong: [
     {
+      key: 1,
       name: 'Sax o Fön',
-      price: 320
+      address: 'Rådmansgatan 46',
+      price: 320,
+      description: 'Lorem ipsum',
+      time: '12:00'
     },
     {
+      key: 2,
       name: 'Hårizont',
-      price: 520
+      address: 'Götgatan 40',
+      price: 520,
+      description: 'Ipsum Lorem',
+      time: '13:00'
     },
     {
+      key: 3,
       name: 'Hårhuset',
-      price: 520
+      address: 'Södra Vägen 24',
+      price: 520,
+      description: 'Remol sumip',
+      time: '15:00'
     },
     {
+      key: 4,
       name: 'Hair & Nu',
-      price: 250
+      address: 'Saxvägen 12888',
+      price: 250,
+      description: 'Sumip Remol',
+      time: '11:00'
     },
     {
+      key: 5,
       name: 'Hårley Davidson',
-      price: 900
+      price: 900,
+      address: 'Klippgatan 6',
+      description: 'Summol ipre',
+      time: '13:00'
     }
   ]
 };
 
-console.log(fakeServerData.salong)
 
 class Salong extends React.Component {
   render() {
     let salongInfo = this.props.salongInfo;
     return(
-      <div className='listitem'>
-        <h1> {salongInfo.name} </h1>
-        <h1> {salongInfo.price} </h1>
+      <div className='listitem' display='inline-block'>
+        <div className='salname'> 
+          {salongInfo.name} 
+            <div className='salprice'> {salongInfo.price}</div>
+        </div>
+        <hr />
       </div>
     )
   }
@@ -63,7 +86,10 @@ class Salong extends React.Component {
 class DropDownParent extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {range: '', serverData: {}};
+    this.state = {
+      serverData: {},
+      range: ''
+    };
     this.changeRange = this.changeRange.bind(this);
   }
 
@@ -71,13 +97,13 @@ class DropDownParent extends React.Component{
     this.setState({
       range: newRange
     });
-    // console.log(this.setState.range, newRange);
+    console.log(newRange);
   }
 
   componentDidMount() {
     setTimeout(() => {
-    this.setState({serverData: fakeServerData});
-    }, 1000);
+      this.setState({serverData: salongServerData});
+    }, 500);
   }
 
   render() {
@@ -85,13 +111,12 @@ class DropDownParent extends React.Component{
           <div>
             {this.state.serverData.salong ?
             <div>
-              <DropChild range={this.state.range} onClick={this.changeRange} />
-              {this.state.serverData.salong.map(salongInfo =>
+              <DropChild range={this.state.range} onClick={this.changeRange} id={this.state.id}/>
+              {this.state.serverData.salong.filter(salongInfo =>
+                salongInfo.price
+              ).map(salongInfo =>
                 <Salong salongInfo={salongInfo} />              
               )}
-              {/* {this.state.serverData.salong.map(salongPrice =>
-                <Salong price={salongPrice.price} />              
-              )} */}
             </div> : <h1>loading</h1>
         }
         </div>
@@ -109,7 +134,6 @@ class App extends React.Component {
         <div className = "App-status"><img src= {blackstatus} alt='Status bar'/></div>
         <MenuBar/>
         <DropDownParent/>
-        {/* <SalongList/> */}
       </div>
     );
   }
