@@ -29,7 +29,7 @@ class Salong extends React.Component {
     let salongInfo = this.props.salongInfo;
     return(
       <div className='listitem' display='inline-block'>
-        <div className='salname'> 
+        <div className='salname' > 
           {salongInfo.name} 
             <div className='salprice'> {salongInfo.price}</div>
         </div>
@@ -53,20 +53,15 @@ class DropDownParent extends React.Component{
     this.setState({
       range: newRange
     });
-    console.log(newRange);
+    // console.log(newRange);
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({serverData: salongServerData});
-    }, 500);
-  }
 
   render() {
     return (
           <div>
             <div>
-              <DropChild range={this.state.range} onClick={this.changeRange} id={this.state.id}/>
+              <DropChild range={this.state.range} onClick={this.changeRange}/>
             </div>
         </div>
     );
@@ -78,22 +73,25 @@ class FilterList extends React.Component{
     super(props);
     this.state = {
       serverData: {},
-      range: ''
+      topPrice: ''
     };
-    this.changeRange = this.changeRange.bind(this);
+    this.changeList = this.changeList.bind(this);
   }
 
-  changeRange(newRange) {
+  changeList(newList) {
     this.setState({
-      range: newRange
+      topPrice: newList
     });
-    console.log(newRange);
+    console.log(newList);
   }
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({serverData: salongServerData});
     }, 1000);
+    setTimeout(() => {
+      this.setState({topPrice: ''})
+    }, 2000);
   }
 
   render() {
@@ -102,9 +100,9 @@ class FilterList extends React.Component{
             {this.state.serverData.salong ?
             <div>
               {this.state.serverData.salong.filter(salongInfo =>
-                salongInfo.price
+                salongInfo.price < 600
               ).map(salongInfo =>
-                <Salong salongInfo={salongInfo} />              
+                <Salong salongInfo={salongInfo} onClick={this.changeList} />              
               )}
             </div> : <h1>Laddar...</h1>
         }

@@ -81,11 +81,11 @@ li {
   border-bottom-color: black;
   cursor: pointer;
   text-align: left;
-  padding-left: 10px;
 }
 
 .droptext {
   padding-left: 20px;
+  padding-right: 20px;
 }
 
 .dropdown {
