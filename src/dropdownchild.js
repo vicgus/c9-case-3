@@ -6,6 +6,7 @@ export default class DropChild extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleUserClick = this.handleUserClick.bind(this);
     }
     
     handleClick(e) {
@@ -36,9 +37,15 @@ export default class DropChild extends React.Component {
                 <div className = 'dropdown'>
                     <button className = 'dropbtn'>Pris {this.props.range}</button>
                     <div className='dropdown-content'>
+                        <button className = 'dropbtn' onClick={this.handleUserClick} topPrice='' >
                         <option  onClick={this.handleClick}>{allRanges.text}</option>
+                        </button>
+                        <button className = 'dropbtn' onClick={this.handleUserClick} topPrice= '250'>
                         <option  onClick= {this.handleClick}>{firstRange.text}</option>
+                        </button>
+                        <button className = 'dropbtn' onClick={this.handleUserClick} topPrice= '250'>
                         <option  onClick= {this.handleClick}>{secondRange.text}</option>
+                        </button>
                     </div>
                 </div>
             </div>

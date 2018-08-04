@@ -13,7 +13,7 @@ export let salonger = {
       key: 2,
       name: 'Hårizont',
       address: 'Götgatan 40',
-      price: 520,
+      price: 620,
       description: 'Ipsum Lorem',
       time: '13:00'
     },
